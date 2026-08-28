@@ -75,8 +75,8 @@ Depending on the implementation, the project uses modern web technologies such a
 * **HTML5** — Semantic website structure
 * **CSS3** — Styling, layouts & responsive design
 * **JavaScript** — Interactions & dynamic functionality
-* **[Add your framework here if applicable]** — React / Next.js / etc.
-* **[Add animation library if applicable]** — GSAP / Framer Motion / etc.
+   React / Next.js / etc.
+ GSAP / Framer Motion / etc.
 
 ---
 
@@ -168,59 +168,6 @@ Special attention was given to:
 
 The goal is to make the website feel like a **premium restaurant experience rather than a simple information page.**
 
----
-
-## 🔐 Security & Environment Variables
-
-If the project uses API keys, credentials, or other sensitive configuration:
-
-* Keep secrets inside `.env` files.
-* Never commit private API keys to GitHub.
-* Add `.env` to `.gitignore`.
-
-Example:
-
-```text
-.env
-.env.local
-node_modules/
-dist/
-```
-
----
-
-## 🌐 Deployment
-
-This project can be deployed using modern frontend hosting platforms such as:
-
-* Vercel
-* Netlify
-* GitHub Pages
-* Cloudflare Pages
-
-For a production deployment, configure the required environment variables and build settings according to the project's framework.
-
----
-
-## 📸 Screenshots
-
-Add screenshots of the final website here to showcase the design.
-
-```text
-screenshots/
-├── home.png
-├── menu.png
-├── about.png
-└── mobile.png
-```
-
-You can then display them in the README using:
-
-```markdown
-![Homepage](screenshots/home.png)
-```
-
----
 
 ## 📈 Future Improvements
 

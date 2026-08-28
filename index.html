@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Grand Paragon Palace — A Royal Stay in the Heart of Solan</title>
+<meta name="description" content="Heritage-inspired 3-star hotel on The Mall, Solan. Luxury suites with valley views, multi-cuisine dining, the Jannat open terrace and banquets for up to 1,200 guests. Serving guests since 2002.">
+<meta name="theme-color" content="#0B1611">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Hotel Grand Paragon Palace — Solan, Himachal Pradesh">
+<meta property="og:description" content="A royal stay in the heart of Solan. Suites, dining, weddings and the Jannat Terrace above the valley.">
+<meta property="og:type" content="website">
+
+<!--
+  ============================================================================
+  HOTEL GRAND PARAGON PALACE — front-end build
+  Files: index.html · style.css · script.js   (no build step, no dependencies)
+
+  MEDIA
+  All photography is the hotel's own, supplied by management, and lives in
+  /images as WebP. Each photo ships at two widths — name.webp (full) and
+  name-half.webp — wired together with srcset so phones download the
+  smaller file. A 22px-wide blur of each photo is inlined in the <style>
+  block below as a --lq-* custom property and painted behind the <img>,
+  so a tinted impression of the real picture appears while it downloads.
+  The terrace video is /media/jannat-terrace-reel.mp4 (silent, 9.5s loop)
+  with a matching .jpg poster.
+  If any file goes missing, script.js swaps in a styled gilt placeholder
+  so the layout never shows a broken image.
+
+  CONTENT FLAGGED FOR CONFIRMATION BEFORE LAUNCH  (search "CONFIRM:")
+     · exact postal PIN (173211 on the hotel contact page vs 173212 on Google)
+     · all room / wedding / banquet / catering / bar pricing  (none published here)
+     · WhatsApp booking number, social links, official Google Business link
+     · guest review quotes in the Guest Voices section are template slots
+     · breakfast, airport shuttle and early check-in charges
+  ============================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Low-quality image placeholders: each photo's own colours, 22px wide and
+     inlined, so a tinted blur of the real picture shows while it downloads. */
+  :root{
+    --lq-banquet-gold-table:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAPABYDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAjEAACAQMEAQUAAAAAAAAAAAABAgMABBESISIxUQUyYXGh/8QAFgEBAQEAAAAAAAAAAAAAAAAABAEC/8QAHBEAAgICAwAAAAAAAAAAAAAAAAECMQMRIUFR/9oADAMBAAIRAxEAPwB6G5jfREGJY563JHfn5qFZ2uHiMcjZJxxxp+z1SkzW9zLZzvNLGjDSMb4x+063qKWyaRKhCgD2HbxRHFdi2q0VpMY5ZA+FQngCDnrfNFaUUoMKOSAXGrj1vRVWNemHLmj/2Q==);
+    --lq-dining-brass-service:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAPABYDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAjEAACAgIBAgcAAAAAAAAAAAABAgMRACESBDETMkFRYZHx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIEBf/EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAMAwEAAhEDEQA/AGrEgCuOokZjsEvV455X4KA4kUUHFeX3/ckMR1qmvVHWajkgVmTqJmUjfILd79azN1l0SVOh46GVow18Rsjt94ZKnSmy0MqNy73YB+e2GCMXD//Z);
+    --lq-dining-breakfast:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAARABYDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAIDAQQG/8QAJxAAAgEDAwQABwAAAAAAAAAAAQIEAAMRBTFBEhMhcRQyMzRRcrH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABgRAAMBAQAAAAAAAAAAAAAAAAABAhIx/9oADAMBAAIRAxEAPwC+RJsiUptWldQnQ2fAOTkVWsq2qMPhOlXXLdVwgHzwahI1aEsM24I7r427Zz7JNbEa/G1QFbaFigAZLxGT+SBzUOS1TFuXeWOFhwTvsGz45P8AKU1GQkd0ju6C2FyFA24HNKrKJ0zmdP8Arr6NZ0/57P7GlKZ6FcJSfvr3ulKUgf/Z);
+    --lq-dining-curries:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAnABYDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAMBAgQFBv/EACgQAAICAQMCBQUBAAAAAAAAAAECAxEABBIhIjFBUWFxoQUTFJHR8P/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAwD/xAAZEQADAAMAAAAAAAAAAAAAAAAAARECITH/2gAMAwEAAhEDEQA/AGCOQJuVQw7cEWcz6DR6idZmiYIVc7b7k4saySOAo0cbkClkYGhXa6PPviIZNZOpMUxQoSJQDVmzz+szTy2N4rQqXUPyhc9J+cMsmjfUF5SRGpY1Zwx0EF/liQbDDbLy/XSE+Z/mToh1ytW9nomgbPPNDvlNEibpUsllbcNouxyL9aydR0M7PuB2GiRVseKH+8ML7DRcpp3qrGRGSNCKJsUT5fGGcgl2O5yzerG8MqUC3T0H1zRRCETQj7cijcwXgMB4+/OcFpHlcF2Zj2tmJwwyog+XSSKqkbT6X2wwwzqQ/9k=);
+    --lq-dining-terrace-glass:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAnABYDASIAAhEBAxEB/8QAGgAAAwADAQAAAAAAAAAAAAAAAAMFAQIEBv/EACUQAAICAgEDAwUAAAAAAAAAAAECAxEABCExQVEFEhQyQlJhcf/EABcBAQEBAQAAAAAAAAAAAAAAAAACAwH/xAAaEQEBAAIDAAAAAAAAAAAAAAABAAIDERIT/9oADAMBAAIRAxEAPwCikt/SSb8Y0bDqT1uubGTnj+QFKsU9oulNXnXrWSbYlVABvm674cknU4myepLCtyji66HDInq0jbO0IoeFQWa7nzhk+lRrurTqQxFnULdMO4xksp09ZY1lWWWVq46AHvnnNPYlMpVbII5I+394zZleKIMzEyWQvN+0ef7nEVpGc+6E2ZRJGHo1YNYZJLt+Rww4DaGxLeKUxlutHrWYeUsCLJvzhhl2cu8MMMS//9k=);
+    --lq-facade-arcade:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAPABYDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAlEAACAQMDAgcAAAAAAAAAAAABAgMABBESITETUSIjMkFxgaH/xAAWAQEBAQAAAAAAAAAAAAAAAAAEAQL/xAAXEQEBAQEAAAAAAAAAAAAAAAAAARES/9oADAMBAAIRAxEAPwBLRZGkZBOcRgD07GtoblZb1ogwbDNwOaSzbwu3SGyjAbB3NVCePVJ5ADLwBjeh0pz44WvZJI9bOYz74Pf8oq1plHCD47fdFa6kTH//2Q==);
+    --lq-facade-night:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAiABYDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQFBgID/8QAJhAAAgIBAgYCAwEAAAAAAAAAAQIAEQMEIQUSEzFBYRSBIiNRcf/EABYBAQEBAAAAAAAAAAAAAAAAAAIDBP/EABoRAQEAAwEBAAAAAAAAAAAAAAABAhEhMVH/2gAMAwEAAhEDEQA/AM0dJn5GfpNyqaYgdv8AZ41NWXPVbSplOQalbc+L93IJ4TpwTgexlNFXBrv/AEdpOZ/TuKhiWXEeGfDx4mVmYtYYFao+vURy76HjQLixfMP61XAUFENVtU6ORU164VDHEeW2qxdb7zjBqSTg6aszhhtd2JNya1hTZsfIA5UM3kb9pl0sgazTYc/5szEKxXcVXrtEs9PnxZEa2KAHYnzEvhlZNJ2dU3DQOjjahzUd/PeSNQ7AWGI+4iA0F2YndifuIiOC/9k=);
+    --lq-lobby-heritage-lounge:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAPABYDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EACEQAAIBBAICAwAAAAAAAAAAAAECAwAEETESIiFBFWGB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwT/xAAaEQADAAMBAAAAAAAAAAAAAAAAAQIREiFB/9oADAMBAAIRAxEAPwCtZTxB27rxXZz4GqdF5bJ1aZFO8E+qlRWVuIGii5IjHJAO6z8U7FmW5kA9LsftTRWOFNSn1jd1PCbjJIZSuQR5opaFDbQrGVDcc9ifuim2fjFUPB//2Q==);
+    --lq-room-executive-arched:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAOABYDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAQT/xAAmEAACAQMCBAcAAAAAAAAAAAABAgMABBEhMQUGFCISMkFCYXGh/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABcRAQEBAQAAAAAAAAAAAAAAAAABESH/2gAMAwEAAhEDEQA/ANV0iDlbiLsBxld9tN/mmpedTZxykMwORhQPSkxR21jadcI2Z8ZIJ0wdCAK4X5ifLLHbRlPYHHlqcayqyhZo8lWXBx3DX8oqBHxTiB8ciTgBm2xoPqil0bH/2Q==);
+    --lq-room-twin-carved:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAOABYDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUDBAb/xAAjEAACAgIBBAIDAAAAAAAAAAABAgMEABEFEhMhUSIxIzJx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFREBAQAAAAAAAAAAAAAAAAAAADH/2gAMAwEAAhEDEQA/AIOGsivaInkftldAEkje/WOmvKLM0MkICopKsW/Ygb+sz8vJT178STsTHGvkQ/Dq9Y3tTOkBsxlX6Rv8iAnX9xWoW2eYtqvcEUKqTreyfPr7wynd5Q2UVRBCrA7Y9A84ZB//2Q==);
+    --lq-room-valley-velvet:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAANABYDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIEBf/EACQQAAIBAwIGAwAAAAAAAAAAAAECAwAEERIhBRMUFTFBJFFh/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECERL/2gAMAwEAAhEDEQA/AKv5bSS1h5SKGDrqKex78VHFbXqmtxA6DTCDhjijzdv+HGiyQhQ2mTfc1j7tdrePGJTyxnCHfG37VYpeDhcUCNJ1DalYAqUOfulcqa6k57kHT6wPApWTnR9H/9k=);
+    --lq-suite-royal-canopy:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAOABYDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EAB8QAAICAgMAAwAAAAAAAAAAAAECAxEABAUSISKCkf/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAwDAQACEQMRAD8AoSAIrKzfIC6xjVKy64roOo9PUWMhTctrzHac67hEQJ43pF5rW5OAKTrLMjkVbkHzDaiiWjPJFRCFHpD0fzDJ+1IZNmdLN9la/rhi0Lh//9k=);
+    --lq-terrace-aerial:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAhABYDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAUCAQMG/8QAJhAAAgICAQIFBQAAAAAAAAAAAQIAEQMSBRNBITEyofAiUYGx4f/EABgBAAIDAAAAAAAAAAAAAAAAAAADAQIE/8QAGhEAAgMBAQAAAAAAAAAAAAAAAAIBEhNRQf/aAAwDAQACEQMRAD8A8rUVLLcSoT686B69IW/edQ40WpOTVT5krdfiL0XpakkuolfFxeNr6mRiOxQAfuIaKWzkoFTk2atQDqoqaVcrjXax5a7ScvJAY9XRmN3e00vKqpvpEsO+wmSjR4OsvSliwjKDYA8TcSanMFLAxXfjZf8AkQzcLKSx6Zx2Pz7xE1iA/wA94iJMEH//2Q==);
+    --lq-terrace-bar-night:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAPABYDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAhEAACAgICAQUAAAAAAAAAAAABAgMRADEEEhMhU3Ghwf/EABYBAQEBAAAAAAAAAAAAAAAAAAMCBP/EABgRAQEAAwAAAAAAAAAAAAAAAAEAAiFh/9oADAMBAAIRAxEAPwDkcKNIlJ8QlI9WeiaH5mweOYKHEaV7ZoVjQrJJx2ERUBbLCqFV95NA80TdoSK+N5m0qz8p5+G7SsyPGwJ0DrDHk7WXlc2d1hiGTQhf/9k=);
+    --lq-terrace-bonfire:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAOABYDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQGBf/EACEQAAIBBAICAwAAAAAAAAAAAAECAwAEERIhMQUTYXGR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgH/xAAaEQACAgMAAAAAAAAAAAAAAAAAAQISETFB/9oADAMBAAIRAxEAPwDCkT1qu67OwDAqevumpPHvHcxRyQZ9ke4BfHY4Bqpms4PXlECY5GgxzU/5CCbdyZ2ZSQRzj9pWklsVU+Ctwosrl4ZreAagEBRt380UpKXVs7nLdnPdFCxcH//Z);
+    --lq-wedding-shehnai-gazebo:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAhABYDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQFBgID/8QAKhAAAQQBAwIDCQAAAAAAAAAAAQACAxEEEiExQXEFIlEGEzIzYpGxwdH/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQMC/8QAGREBAAMBAQAAAAAAAAAAAAAAAAECETEh/9oADAMBAAIRAxEAPwDOZkZil3FWFGWgmw3Z8bHuc/WNn1RNjjtsh9nXCO/dzt+ogFKOKWrOs/SKdl4ZxJA1ztRIuq3G6JsY1WHJFHIJo9Ugc3U01uaHUJjZ2VLOXunDo+sJYAf6FUtnbHBFG2VjnR+Vw3A55BXNMkyQXTxtjc2iLJt329UR43aaz2FjkeCtyn6pJZHEXvqrk3+0UXIx5p4WRx5Bj0H0Pm6WiC14w/AOw/CZXyh3REkLJkfBRETVjj//2Q==);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ SVG defs: the arch. Signature shape, reused as a clip-path everywhere ══ -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" class="svg-defs">
+  <defs>
+    <!-- ogee / onion-point arch, used on hero + Jannat -->
+    <clipPath id="archOgee" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,0.44 C0,0.28 0.13,0.16 0.30,0.115 C0.42,0.085 0.468,0.045 0.5,0 C0.532,0.045 0.58,0.085 0.70,0.115 C0.87,0.16 1,0.28 1,0.44 L1,1 Z"/>
+    </clipPath>
+    <!-- calmer dome arch, used on cards so the hero keeps the drama -->
+    <clipPath id="archDome" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,0.40 C0,0.18 0.224,0 0.5,0 C0.776,0 1,0.18 1,0.40 L1,1 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ══════════════════════════ PRELOADER ══════════════════════════ -->
+<div class="loader" id="loader" role="status" aria-label="Loading">
+  <div class="loader__inner">
+    <svg class="loader__arch" viewBox="0 0 120 150" aria-hidden="true">
+      <path class="loader__path" d="M4,148 L4,68 C4,40 27,18 48,11 C55,8.5 57,5 60,1 C63,5 65,8.5 72,11 C93,18 116,40 116,68 L116,148"
+            fill="none" stroke="url(#loaderGilt)" stroke-width="1.4"/>
+      <defs>
+        <linearGradient id="loaderGilt" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#8F6A22"/>
+          <stop offset="45%" stop-color="#F0DCA4"/>
+          <stop offset="100%" stop-color="#8F6A22"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <p class="loader__word">GRAND&nbsp;PARAGON</p>
+    <p class="loader__sub">Solan &middot; Himachal Pradesh</p>
+  </div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ══════════════════════════ HEADER ══════════════════════════ -->
+<header class="site-head" id="siteHead">
+  <div class="site-head__bar shell">
+
+    <a class="brand" href="#top" aria-label="Hotel Grand Paragon Palace — home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 48"><path d="M2,46 L2,22 C2,13 9.5,5.5 16.5,3 C19,2 19.2,1 20,-1 C20.8,1 21,2 23.5,3 C30.5,5.5 38,13 38,22 L38,46" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M13,46 L13,28 C13,24 16,21 20,21 C24,21 27,24 27,28 L27,46" fill="none" stroke="currentColor" stroke-width="1.1" opacity=".55"/></svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Grand Paragon</span>
+        <span class="brand__sub">Palace &middot; Solan</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms &amp; Suites</a></li>
+
+        <li class="nav__has-sub">
+          <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="subDining">
+            Dining <svg class="nav__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1,1 L5,5 L9,1" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+          <ul class="nav__sub" id="subDining">
+            <li><a href="#dining">Multi-Cuisine Restaurant</a></li>
+            <li><a href="#jannat">Jannat Open Terrace</a></li>
+            <li><a href="#dining">The Bar</a></li>
+          </ul>
+        </li>
+
+        <li class="nav__has-sub">
+          <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="subWed">
+            Weddings <svg class="nav__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1,1 L5,5 L9,1" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+          <ul class="nav__sub" id="subWed">
+            <li><a href="#weddings">Weddings &amp; Events</a></li>
+            <li><a href="#banquets">Svayamvara Banquet</a></li>
+            <li><a href="#banquets">Sangam Hall</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#solan">Explore Solan</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-head__act">
+      <a class="link-phone" href="tel:+919418068277">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5,2.5 L5,2 L6.5,5 L5,6.3 C5.6,8 8,10.4 9.7,11 L11,9.5 L14,11 L13.5,13.5 C8,14.5 1.5,8 2.5,2.5Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        <span>+91 94180 68277</span>
+      </a>
+      <button type="button" class="btn btn--gilt btn--sm" data-open-booking>Book Your Stay</button>
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="mobileNav" hidden>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <button type="button" class="drawer__close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <p class="drawer__eyebrow">Hotel Grand Paragon Palace</p>
+    <nav aria-label="Mobile">
+      <ul class="drawer__list">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#rooms">Rooms &amp; Suites</a></li>
+        <li><a href="#dining">Dining</a></li>
+        <li><a href="#jannat">Jannat Terrace</a></li>
+        <li><a href="#weddings">Weddings &amp; Events</a></li>
+        <li><a href="#banquets">Banquets</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#solan">Explore Solan</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="drawer__foot">
+      <button type="button" class="btn btn--gilt btn--full" data-open-booking>Book Your Stay</button>
+      <a class="btn btn--ghost btn--full" href="tel:+919418068277">Call 24&times;7</a>
+      <p class="drawer__addr">The Mall, Solan<br>Himachal Pradesh, India</p>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="hero__jaali" aria-hidden="true"></div>
+  <div class="hero__mist" aria-hidden="true"></div>
+
+  <div class="shell hero__grid">
+
+    <div class="hero__copy">
+      <p class="eyebrow reveal" data-reveal>
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+        3-Star Heritage Hotel &middot; Since 2002
+      </p>
+
+      <h1 class="hero__title" id="heroTitle">
+        <span class="reveal" data-reveal style="--i:1">A Royal Stay</span>
+        <span class="reveal" data-reveal style="--i:2">in the Heart</span>
+        <span class="reveal gilt-text" data-reveal style="--i:3">of Solan</span>
+      </h1>
+
+      <p class="hero__lede reveal" data-reveal style="--i:4">
+        Experience heritage-inspired hospitality, comfortable suites, panoramic valley
+        views, exquisite dining and unforgettable celebrations at Hotel Grand Paragon Palace.
+      </p>
+
+      <div class="hero__cta reveal" data-reveal style="--i:5">
+        <button type="button" class="btn btn--gilt" data-open-booking>
+          Book Your Stay
+          <svg viewBox="0 0 20 8" aria-hidden="true" class="btn__arrow"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </button>
+        <a class="btn btn--outline" href="#weddings">Plan Your Event</a>
+      </div>
+
+      <dl class="hero__stats reveal" data-reveal style="--i:6">
+        <div><dt>Established</dt><dd>2002</dd></div>
+        <div><dt>Property</dt><dd>60,000 <small>sq.&nbsp;ft.</small></dd></div>
+        <div><dt>Guest rating</dt><dd>4.0 <small>&#9733; &middot; 1,500+</small></dd></div>
+      </dl>
+    </div>
+
+    <div class="hero__stage">
+      <!-- gilt hairline arch that draws itself -->
+      <svg class="hero__outline" viewBox="0 0 420 560" aria-hidden="true" preserveAspectRatio="none">
+        <path class="draw-arch" d="M6,556 L6,252 C6,160 84,80 160,48 C196,33 205,18 210,2 C215,18 224,33 260,48 C336,80 414,160 414,252 L414,556"
+              fill="none" stroke="#C9A24B" stroke-width="1.2" opacity=".85"/>
+      </svg>
+
+      <figure class="arch arch--ogee hero__arch">
+        <img src="images/facade-night.webp" srcset="images/facade-night-half.webp 334w, images/facade-night.webp 667w" sizes="(max-width:900px) 88vw, 42vw" alt="Hotel Grand Paragon Palace lit up after dark, its carved facade strung with lights" width="667" height="1020" style="background-image:var(--lq-facade-night)" class="kenburns" fetchpriority="high" decoding="async">
+        <span class="sheen" aria-hidden="true"></span>
+        <figcaption class="sr-only">The facade of Hotel Grand Paragon Palace on The Mall, Solan, lit for the evening.</figcaption>
+      </figure>
+
+      <div class="hero__badge" data-parallax="0.08">
+        <span class="hero__badge-deva">जन्नत</span>
+        <strong>Jannat Terrace</strong>
+        <span>250 seats above the valley</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- availability bar -->
+  <div class="shell">
+    <form class="bookbar reveal" id="bookBar" data-reveal novalidate aria-label="Check availability">
+      <div class="bookbar__field">
+        <label for="bbIn">Check-in</label>
+        <input type="date" id="bbIn" name="checkin" required>
+      </div>
+      <div class="bookbar__field">
+        <label for="bbOut">Check-out</label>
+        <input type="date" id="bbOut" name="checkout" required>
+      </div>
+      <div class="bookbar__field">
+        <label for="bbGuests">Guests</label>
+        <select id="bbGuests" name="guests">
+          <option>1 Adult</option>
+          <option selected>2 Adults</option>
+          <option>2 Adults, 1 Child</option>
+          <option>3 Adults</option>
+          <option>4 Adults</option>
+          <option>Group / 5+ rooms</option>
+        </select>
+      </div>
+      <div class="bookbar__field">
+        <label for="bbRoom">Room</label>
+        <select id="bbRoom" name="room">
+          <option>Executive Suite — Valley View</option>
+          <option>Executive Suite — Twin Bed</option>
+          <option>Royal Suite</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="bookbar__submit">
+        <button type="submit" class="btn btn--gilt btn--full">Check Availability</button>
+      </div>
+      <p class="bookbar__note" id="bookbarNote">
+        Check-in 2:00&nbsp;PM &middot; Check-out 12:00&nbsp;PM. Our reservations team confirms current rates — no online payment needed.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- ══════════════════════════ MARQUEE ══════════════════════════ -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon__track" id="ribbonTrack">
+    <span>Heritage Inspired</span><i>&#10022;</i>
+    <span>Serving Guests Since 2002</span><i>&#10022;</i>
+    <span>Panoramic Valley Views</span><i>&#10022;</i>
+    <span>Multi-Cuisine Restaurant</span><i>&#10022;</i>
+    <span>Jannat Open Terrace</span><i>&#10022;</i>
+    <span>Weddings Up To 1,200 Guests</span><i>&#10022;</i>
+    <span>On The Mall, Solan</span><i>&#10022;</i>
+  </div>
+</div>
+
+<!-- ══════════════════════════ ABOUT ══════════════════════════ -->
+<section class="section section--mist" id="about" aria-labelledby="aboutTitle">
+  <div class="shell about">
+    <div class="about__media">
+      <figure class="arch arch--dome reveal" data-reveal>
+        <img src="images/lobby-heritage-lounge.webp" srcset="images/lobby-heritage-lounge-half.webp 680w, images/lobby-heritage-lounge.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="Hotel lounge with hand-painted Rajasthani murals and carved wooden seating" width="1360" height="907" style="background-image:var(--lq-lobby-heritage-lounge)" loading="lazy" decoding="async">
+      </figure>
+      <figure class="about__inset reveal" data-reveal style="--i:2">
+        <img src="images/facade-arcade.webp" srcset="images/facade-arcade-half.webp 680w, images/facade-arcade.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="The hotel arcade at night, flower boxes along the balconies above lit storefronts" width="1360" height="921" style="background-image:var(--lq-facade-arcade)" loading="lazy" decoding="async">
+      </figure>
+    </div>
+
+    <div class="about__copy">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> About Us</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="aboutTitle">
+        Paragon &mdash; <em>an epitome of perfection</em>
+      </h2>
+
+      <div class="prose reveal" data-reveal style="--i:3">
+        <p>
+          Hotel Grand Paragon Palace has welcomed guests to Solan since 2002. Spread across
+          roughly 60,000 square feet in the heart of the town, the property draws its
+          character from royal heritage architecture &mdash; arched frontages, generous
+          proportions and detailing that belongs to an older Himachal &mdash; while the rooms,
+          restaurant and banquets behind that frontage are thoroughly modern.
+        </p>
+        <p>
+          The name says what the house aims at. Our team of thirty looks after comfortable
+          accommodation, warm hospitality, dining through the day, and celebrations that
+          range from an intimate ring ceremony to a wedding of more than a thousand guests
+          &mdash; all of it a short walk from The Mall, with the valley in view.
+        </p>
+      </div>
+
+      <ul class="counters reveal" data-reveal style="--i:4">
+        <li><span class="counters__n" data-count="2002" data-plain="true">2002</span><span class="counters__l">Established</span></li>
+        <li><span class="counters__n" data-count="60000" data-suffix="">60,000</span><span class="counters__l">Sq. ft. property</span></li>
+        <li><span class="counters__n" data-count="6">6</span><span class="counters__l">Suites</span></li>
+        <li><span class="counters__n" data-count="24">24</span><span class="counters__l">Rooms</span></li>
+        <li><span class="counters__n" data-count="30">30</span><span class="counters__l">Team members</span></li>
+        <li><span class="counters__n" data-count="10">10</span><span class="counters__l">Guest services</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ ROOMS ══════════════════════════ -->
+<section class="section" id="rooms" aria-labelledby="roomsTitle">
+  <div class="shell">
+    <header class="sec-head">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> Rooms &amp; Suites</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="roomsTitle">Six suites, twenty-four rooms,<br>one very good view</h2>
+      <p class="sec-head__lede reveal" data-reveal style="--i:3">
+        Every room carries the same essentials &mdash; free Wi-Fi, satellite TV, air
+        conditioning, a spacious washroom, electronic door locks, tea and coffee, and room
+        service around the clock. What changes is the outlook and the layout.
+      </p>
+    </header>
+
+    <div class="rooms">
+      <article class="room reveal" data-reveal>
+        <figure class="arch arch--dome room__fig">
+          <img src="images/room-valley-velvet.webp" srcset="images/room-valley-velvet-half.webp 680w, images/room-valley-velvet.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="Guest room with a velvet upholstered headboard and a window onto the hills" width="1360" height="833" style="background-image:var(--lq-room-valley-velvet)" loading="lazy" decoding="async">
+        </figure>
+        <div class="room__body">
+          <p class="room__kind">Executive Suite</p>
+          <h3 class="h3">Valley View</h3>
+          <p>Our most requested room. A luxury bedroom turned toward the open valley, so the
+             hills are the first thing you see in the morning.</p>
+          <ul class="tags">
+            <li>Valley outlook</li><li>Luxury bedroom</li><li>Free Wi-Fi</li><li>Electronic locks</li>
+          </ul>
+          <button type="button" class="linkish" data-open-booking data-room="Executive Suite — Valley View">
+            Check availability <svg viewBox="0 0 20 8" aria-hidden="true"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <article class="room reveal" data-reveal style="--i:2">
+        <figure class="arch arch--dome room__fig">
+          <img src="images/room-twin-carved.webp" srcset="images/room-twin-carved-half.webp 680w, images/room-twin-carved.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="Twin room with hand-carved wooden headboards and brass-toned upholstery" width="1360" height="890" style="background-image:var(--lq-room-twin-carved)" loading="lazy" decoding="async">
+        </figure>
+        <div class="room__body">
+          <p class="room__kind">Executive Suite</p>
+          <h3 class="h3">Twin Bed</h3>
+          <p>The same luxury specification in a twin-bed configuration &mdash; the practical
+             choice for friends travelling together, colleagues, or a family that wants space.</p>
+          <ul class="tags">
+            <li>Twin beds</li><li>Air conditioned</li><li>Free Wi-Fi</li><li>Tea &amp; coffee</li>
+          </ul>
+          <button type="button" class="linkish" data-open-booking data-room="Executive Suite — Twin Bed">
+            Check availability <svg viewBox="0 0 20 8" aria-hidden="true"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <article class="room reveal room--feature" data-reveal style="--i:3">
+        <figure class="arch arch--dome room__fig">
+          <img src="images/suite-royal-canopy.webp" srcset="images/suite-royal-canopy-half.webp 680w, images/suite-royal-canopy.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="Four-poster suite bed draped in white voile and dressed with rose petals" width="1360" height="890" style="background-image:var(--lq-suite-royal-canopy)" loading="lazy" decoding="async">
+        </figure>
+        <div class="room__body">
+          <p class="room__kind">Signature <span class="room__flag">Most royal</span></p>
+          <h3 class="h3">Royal Suite</h3>
+          <p>Where the heritage idea is at its fullest &mdash; a generous luxury bedroom with
+             royal-inspired furnishing, and every modern facility kept quietly out of sight.</p>
+          <ul class="tags">
+            <li>Royal-inspired</li><li>Luxury bedroom</li><li>Free Wi-Fi</li><li>Room service</li>
+          </ul>
+          <button type="button" class="linkish" data-open-booking data-room="Royal Suite">
+            Check availability <svg viewBox="0 0 20 8" aria-hidden="true"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <p class="rates-note reveal" data-reveal>
+      <!-- CONFIRM: no rate card is published on this page by design. Historical 2000s
+           tariffs exist but must not be shown as current pricing. -->
+      Rates vary by season and occupancy. Tell us your dates and we will send you today's
+      best available rate.
+      <button type="button" class="linkish" data-open-booking>Get current rates</button>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════ DINING ══════════════════════════ -->
+<section class="section section--ink2" id="dining" aria-labelledby="diningTitle">
+  <div class="shell">
+    <header class="sec-head sec-head--center">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> Dining</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="diningTitle">A hundred covers, and a hill breeze</h2>
+    </header>
+
+    <div class="dine">
+      <article class="dine__main reveal" data-reveal>
+        <figure class="dine__fig">
+          <img src="images/dining-brass-service.webp" srcset="images/dining-brass-service-half.webp 680w, images/dining-brass-service.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="Hammered brass thalis, tumblers and chutney bowls set out for service" width="1360" height="907" style="background-image:var(--lq-dining-brass-service)" loading="lazy" decoding="async">
+        </figure>
+        <div class="dine__body">
+          <h3 class="h3">Multi-Cuisine Restaurant</h3>
+          <p>
+            Our restaurant seats about a hundred and runs from early breakfast through to a
+            late dinner, with a continental menu alongside the Indian dishes people come back
+            for. Prefer to stay put? Room service brings the same kitchen upstairs, at any hour.
+          </p>
+          <ul class="tags tags--gilt">
+            <li>100 covers</li><li>Continental &amp; Indian</li><li>Open-air seating</li><li>Room service 24&times;7</li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="dine__side">
+        <article class="minicard reveal" data-reveal style="--i:2">
+          <span class="minicard__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6,3 L6,11 M9,3 L9,11 M7.5,11 L7.5,21 M15,3 C18,3 19,6 18,9 L16,11 L16,21" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+          <h4>Tea, coffee &amp; a welcome drink</h4>
+          <p>Tea and coffee facilities in every room, and something cold or warm in your hand
+             the moment you arrive.</p>
+        </article>
+
+        <article class="minicard reveal" data-reveal style="--i:3">
+          <span class="minicard__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5,3 L19,3 L13.2,11 L13.2,19 L17,19 M13.2,19 L9.4,19" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+          <h4>The Bar</h4>
+          <p>An on-site bar for an unhurried evening drink.
+            <!-- CONFIRM: drinks list and pricing withheld until the hotel supplies a current menu. -->
+            <span class="muted">Current selection on request.</span></p>
+        </article>
+
+        <article class="minicard reveal" data-reveal style="--i:4">
+          <span class="minicard__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3,20 L21,20 M5,20 L5,13 C5,9 8,6 12,6 C16,6 19,9 19,13 L19,20 M12,6 L12,3" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+          </span>
+          <h4>Rooftop &amp; open-air</h4>
+          <p>When the weather turns kind, dinner moves outdoors to the terrace &mdash; see
+             <a href="#jannat">Jannat</a>.</p>
+        </article>
+      </div>
+    </div>
+
+    <p class="fineprint reveal" data-reveal>
+      <!-- CONFIRM: breakfast is listed publicly as an additional charge; do not advertise it as complimentary. -->
+      Breakfast is available at an additional charge. Ask us about it when you book.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════ JANNAT TERRACE ══════════════════════════ -->
+<section class="section jannat" id="jannat" aria-labelledby="jannatTitle">
+  <div class="jannat__bg" aria-hidden="true" data-parallax="-0.07">
+    <img src="images/terrace-aerial.webp" srcset="images/terrace-aerial-half.webp 340w, images/terrace-aerial.webp 679w" sizes="(max-width:720px) 92vw, 46vw" alt="Jannat Terrace seen from above at night, gazebos ringed by potted cypress" width="679" height="1020" style="background-image:var(--lq-terrace-aerial)" loading="lazy" decoding="async">
+  </div>
+  <div class="jannat__veil" aria-hidden="true"></div>
+
+  <div class="shell jannat__grid">
+    <div class="jannat__copy">
+      <p class="deva reveal" data-reveal>जन्नत</p>
+      <p class="eyebrow reveal" data-reveal style="--i:2"><span class="eyebrow__rule" aria-hidden="true"></span> Jannat Open Terrace</p>
+      <h2 class="h2 reveal" data-reveal style="--i:3" id="jannatTitle">Dine above the valley</h2>
+      <p class="lede reveal" data-reveal style="--i:4">
+        Jannat is the part of the hotel guests photograph. An open-air restaurant on the
+        terrace, two gazebos, roughly 250 seats, and the surrounding valleys laid out below
+        &mdash; equally at home for a quiet dinner, a company evening or a party that runs late.
+      </p>
+
+      <ul class="specs reveal" data-reveal style="--i:5">
+        <li><strong>250</strong><span>Seats</span></li>
+        <li><strong>2</strong><span>Gazebos</span></li>
+        <li><strong>Open</strong><span>Air &amp; terrace</span></li>
+      </ul>
+
+      <div class="jannat__cta reveal" data-reveal style="--i:6">
+        <a class="btn btn--gilt" href="#contact">Enquire about Jannat</a>
+        <a class="btn btn--ghost" href="#gallery">View gallery</a>
+      </div>
+    </div>
+
+    <figure class="arch arch--ogee jannat__arch reveal" data-reveal style="--i:3">
+      <img src="images/terrace-bonfire.webp" srcset="images/terrace-bonfire-half.webp 512w, images/terrace-bonfire.webp 1024w" sizes="(max-width:720px) 92vw, 46vw" alt="An open fire burning beside a gazebo on Jannat Terrace after dark" width="1024" height="664" style="background-image:var(--lq-terrace-bonfire)" class="kenburns" loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════════════════════ TERRACE REEL ══════════════════════════ -->
+<!-- Shot vertically on a phone, so it is framed at close to its native size
+     rather than stretched full-bleed. Silent by design: the original audio was
+     ambient noise. Autoplays muted only when scrolled into view, and pauses
+     itself again on the way out. -->
+<section class="section section--ink2 reelband" id="reel" aria-labelledby="reelTitle">
+  <div class="shell reelband__grid">
+
+    <div class="reelband__copy">
+      <p class="eyebrow reveal" data-reveal>
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+        Filmed on the terrace
+      </p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="reelTitle">
+        Nine seconds<br><span class="gilt-text">after sundown</span>
+      </h2>
+      <p class="lede reveal" data-reveal style="--i:3">
+        The gazebos drawn closed, the lamps on, the hills going dark behind them. Filmed on
+        Jannat Terrace by the hotel&rsquo;s own team &mdash; unstaged, and deliberately silent.
+      </p>
+      <p class="reelband__meta reveal" data-reveal style="--i:4">
+        <span class="reelband__dot" aria-hidden="true"></span>
+        <span id="reelState">Paused</span> &middot; silent &middot; loops
+      </p>
+    </div>
+
+    <div class="reelband__stage reveal" data-reveal style="--i:2">
+      <figure class="arch arch--ogee reelframe">
+        <video id="reelVideo" class="reelframe__v"
+               poster="media/jannat-terrace-reel.jpg"
+               width="540" height="960"
+               muted loop playsinline preload="none"
+               aria-label="Silent nine-second clip panning across Jannat Terrace after dark">
+          <source src="media/jannat-terrace-reel.mp4" type="video/mp4">
+        </video>
+        <figcaption class="sr-only">Jannat Terrace after dark, filmed from the walkway.</figcaption>
+      </figure>
+
+      <button type="button" class="reelframe__btn" id="reelBtn" aria-pressed="false" aria-label="Play film">
+        <svg class="reelframe__ico reelframe__ico--pause" viewBox="0 0 16 16" aria-hidden="true">
+          <rect x="4" y="2.5" width="2.6" height="11" rx=".6"/><rect x="9.4" y="2.5" width="2.6" height="11" rx=".6"/>
+        </svg>
+        <svg class="reelframe__ico reelframe__ico--play" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M4.5,2.4 L13,8 L4.5,13.6 Z"/>
+        </svg>
+        <span class="reelframe__btn-label">Play film</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ WEDDINGS ══════════════════════════ -->
+<section class="section section--mist" id="weddings" aria-labelledby="wedTitle">
+  <div class="shell">
+    <header class="sec-head sec-head--center">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> Weddings &amp; Events</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="wedTitle">From a ring ceremony<br>to twelve hundred guests</h2>
+      <p class="sec-head__lede reveal" data-reveal style="--i:3">
+        Two banquets and an open lawn give us the range most Solan venues cannot offer. Our
+        events team walks you through layout, timings and catering, and holds the whole day
+        together once it starts.
+      </p>
+    </header>
+
+    <div class="wed">
+      <article class="wed__card reveal" data-reveal>
+        <figure><img src="images/wedding-shehnai-gazebo.webp" srcset="images/wedding-shehnai-gazebo-half.webp 340w, images/wedding-shehnai-gazebo.webp 679w" sizes="(max-width:720px) 92vw, 46vw" alt="Shehnai and dhol players seated in the carved white gazebo during a wedding" width="679" height="1020" style="background-image:var(--lq-wedding-shehnai-gazebo)" loading="lazy" decoding="async"></figure>
+        <div class="wed__body">
+          <p class="deva deva--sm">स्वयंवर</p>
+          <h3 class="h3">Svayamvara Banquet</h3>
+          <p>Our principal banquet. Open and covered configurations seat 100 to 300-plus, and
+             with the open lawn the venue carries a ceremony of 1,000&ndash;1,200 guests.</p>
+          <p class="wed__cap"><strong>1,000&ndash;1,200</strong> guests with the open lawn</p>
+          <a class="linkish" href="#banquets">See capacities <svg viewBox="0 0 20 8" aria-hidden="true"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        </div>
+      </article>
+
+      <article class="wed__card reveal" data-reveal style="--i:2">
+        <figure><img src="images/banquet-gold-table.webp" srcset="images/banquet-gold-table-half.webp 680w, images/banquet-gold-table.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="Banquet table laid with brass thalis, red napkins and a floral centrepiece" width="1360" height="907" style="background-image:var(--lq-banquet-gold-table)" loading="lazy" decoding="async"></figure>
+        <div class="wed__body">
+          <p class="deva deva--sm">संगम</p>
+          <h3 class="h3">Sangam Hall</h3>
+          <p>Beautifully decorated, hi-tech and sized for the occasions that matter just as
+             much &mdash; mehendi, a ring ceremony, a smaller wedding, a family gathering.</p>
+          <p class="wed__cap"><strong>100&ndash;400</strong> guests</p>
+          <a class="linkish" href="#banquets">See capacities <svg viewBox="0 0 20 8" aria-hidden="true"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        </div>
+      </article>
+
+      <article class="wed__card reveal" data-reveal style="--i:3">
+        <figure><img src="images/terrace-bar-night.webp" srcset="images/terrace-bar-night-half.webp 680w, images/terrace-bar-night.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="The terrace bar and restaurant frontage lit with fairy lights in the evening" width="1360" height="905" style="background-image:var(--lq-terrace-bar-night)" loading="lazy" decoding="async"></figure>
+        <div class="wed__body">
+          <p class="deva deva--sm">&nbsp;</p>
+          <h3 class="h3">The Open Lawn</h3>
+          <p>Attached to Svayamvara and the reason our top capacity is what it is. Baraat
+             arrivals, cocktails under the sky, sangeet with room to dance.</p>
+          <p class="wed__cap"><strong>150&ndash;250</strong> guests, open area</p>
+          <a class="linkish" href="#contact">Plan your event <svg viewBox="0 0 20 8" aria-hidden="true"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="wed__services reveal" data-reveal>
+      <h3 class="h4">What our team handles</h3>
+      <ul class="pills">
+        <li>Wedding planning assistance</li><li>Banquet arrangements</li><li>Reception</li>
+        <li>Engagement</li><li>Ring ceremony</li><li>Mehendi</li><li>Family functions</li>
+        <li>Catering</li><li>Event coordination</li><li>Corporate events</li><li>Private celebrations</li>
+      </ul>
+      <a class="btn btn--madder" href="#contact">Request a wedding quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ BANQUETS ══════════════════════════ -->
+<section class="section" id="banquets" aria-labelledby="banqTitle">
+  <div class="shell">
+    <header class="sec-head">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> Banquets</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="banqTitle">Capacities, plainly stated</h2>
+      <p class="sec-head__lede reveal" data-reveal style="--i:3">
+        Pick the seating style you have in mind and check it against the numbers. Covered
+        banquet area is listed at 8,500 sq. ft. and 5,500 sq. ft.
+      </p>
+    </header>
+
+    <div class="tabs reveal" data-reveal>
+      <div class="tabs__list" role="tablist" aria-label="Banquet venues">
+        <button type="button" role="tab" id="tabSv" aria-controls="panSv" aria-selected="true" class="tabs__btn is-on">Svayamvara Banquet</button>
+        <button type="button" role="tab" id="tabSa" aria-controls="panSa" aria-selected="false" class="tabs__btn" tabindex="-1">Sangam Hall</button>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panSv" aria-labelledby="tabSv">
+        <div class="table-wrap">
+          <table class="cap-table">
+            <caption>Svayamvara Banquet &mdash; seating arrangements and capacity</caption>
+            <thead><tr><th scope="col">Arrangement</th><th scope="col">Capacity</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Cocktails</th><td>1,000&ndash;1,200</td></tr>
+              <tr><th scope="row">Theatre</th><td>600&ndash;700</td></tr>
+              <tr><th scope="row">Classroom</th><td>350&ndash;450</td></tr>
+              <tr><th scope="row">Cluster</th><td>200&ndash;250</td></tr>
+              <tr><th scope="row">Open area</th><td>150&ndash;250</td></tr>
+              <tr><th scope="row">U-shape</th><td>150&ndash;200</td></tr>
+              <tr><th scope="row">Boardroom</th><td>100&ndash;150</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="specs specs--dark">
+          <li><strong>8,500</strong><span>Sq. ft. covered</span></li>
+          <li><strong>5,500</strong><span>Sq. ft. covered</span></li>
+          <li><strong>1,200</strong><span>Guests, with lawn</span></li>
+        </ul>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panSa" aria-labelledby="tabSa" hidden>
+        <div class="table-wrap">
+          <table class="cap-table">
+            <caption>Sangam Hall &mdash; suitable occasions and capacity</caption>
+            <thead><tr><th scope="col">Occasion</th><th scope="col">Capacity</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Smaller weddings</th><td>100&ndash;400</td></tr>
+              <tr><th scope="row">Reception</th><td>100&ndash;400</td></tr>
+              <tr><th scope="row">Ring ceremony</th><td>100&ndash;400</td></tr>
+              <tr><th scope="row">Mehendi</th><td>100&ndash;400</td></tr>
+              <tr><th scope="row">Family functions</th><td>100&ndash;400</td></tr>
+              <tr><th scope="row">Private events</th><td>100&ndash;400</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fineprint">
+          Sangam is fitted with modern, hi-tech facilities and decorated to suit the occasion.
+          Perfect for intimate celebrations.
+        </p>
+      </div>
+    </div>
+
+    <div class="quote-strip reveal" data-reveal>
+      <div>
+        <h3 class="h4">Tell us the date and the headcount</h3>
+        <p>We will come back with availability, a layout suggestion and a quote. Banquet
+           rental, catering and decor are all priced to the event.</p>
+      </div>
+      <a class="btn btn--gilt" href="#contact">Get a quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ EXPERIENCES ══════════════════════════ -->
+<section class="section section--ink2 exp" aria-labelledby="expTitle">
+  <div class="shell">
+    <header class="sec-head sec-head--center">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> The Paragon Experience</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="expTitle">Four reasons people stay with us</h2>
+    </header>
+    <div class="exp__grid">
+      <figure class="exp__tile reveal" data-reveal>
+        <img src="images/dining-terrace-glass.webp" srcset="images/dining-terrace-glass-half.webp 287w, images/dining-terrace-glass.webp 574w" sizes="(max-width:720px) 92vw, 46vw" alt="A branded glass on a terrace table with the Solan hills beyond" width="574" height="1020" style="background-image:var(--lq-dining-terrace-glass)" loading="lazy" decoding="async">
+        <figcaption><span>Valley views</span></figcaption>
+      </figure>
+      <figure class="exp__tile reveal" data-reveal style="--i:2">
+        <img src="images/lobby-heritage-lounge.webp" srcset="images/lobby-heritage-lounge-half.webp 680w, images/lobby-heritage-lounge.webp 1360w" sizes="(max-width:720px) 92vw, 46vw" alt="Painted murals and carved furniture in the hotel lounge" width="1360" height="907" style="background-image:var(--lq-lobby-heritage-lounge)" loading="lazy" decoding="async">
+        <figcaption><span>Royal ambience</span></figcaption>
+      </figure>
+      <figure class="exp__tile reveal" data-reveal style="--i:3">
+        <img src="images/dining-curries.webp" srcset="images/dining-curries-half.webp 287w, images/dining-curries.webp 574w" sizes="(max-width:720px) 92vw, 46vw" alt="Bowls of North Indian and Himachali curries served in steel katoris" width="574" height="1020" style="background-image:var(--lq-dining-curries)" loading="lazy" decoding="async">
+        <figcaption><span>Dining, all day</span></figcaption>
+      </figure>
+      <figure class="exp__tile reveal" data-reveal style="--i:4">
+        <img src="images/wedding-shehnai-gazebo.webp" srcset="images/wedding-shehnai-gazebo-half.webp 340w, images/wedding-shehnai-gazebo.webp 679w" sizes="(max-width:720px) 92vw, 46vw" alt="Musicians playing in the gazebo during a celebration" width="679" height="1020" style="background-image:var(--lq-wedding-shehnai-gazebo)" loading="lazy" decoding="async">
+        <figcaption><span>Celebrations</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ AMENITIES ══════════════════════════ -->
+<section class="section" id="amenities" aria-labelledby="amenTitle">
+  <div class="shell">
+    <header class="sec-head">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> Amenities &amp; Services</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="amenTitle">The useful things, all present</h2>
+    </header>
+
+    <ul class="amen reveal" data-reveal>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2,9 C8,3 16,3 22,9 M5.5,13 C9,9.5 15,9.5 18.5,13 M9,17 C11,15 13,15 15,17" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="20" r="1.1" fill="currentColor"/></svg></span>Free Wi-Fi</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="12.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9,21 L15,21" stroke="currentColor" stroke-width="1.4"/></svg></span>Satellite TV</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12,2 L12,22 M3,7 L21,17 M21,7 L3,17" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Air conditioning</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5,21 L5,10 C5,7 8,5 12,5 C16,5 19,7 19,10 L19,21 M9,21 L9,14 L15,14 L15,21" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Spacious washrooms</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8,10 L8,7 C8,4.5 10,3 12,3 C14,3 16,4.5 16,7 L16,10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Electronic door locks</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3,18 L21,18 M6,18 C6,13 8.5,11 12,11 C15.5,11 18,13 18,18 M12,11 L12,8 M9,5 L15,5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Room service 24&times;7</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4,4 L20,4 L18,20 L6,20 Z M8,9 L16,9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Laundry service</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3,11 L5,6 L19,6 L21,11 L21,18 L3,18 Z M6,18 L6,20 M18,18 L18,20" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Indoor parking</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4,20 L20,20 M6,20 L6,4 L18,4 L18,20 M10,12 L14,12" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Lift</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12,7 L12,12 L16,14" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>24-hour front desk</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12,4 L12,20 M4,12 L20,12" stroke="currentColor" stroke-width="2"/></svg></span>Doctor on call</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12.5,11 L20,19 M17,13 L20,10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Beauty &amp; salon</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4,13 C4,9 7.5,6 12,6 C16.5,6 20,9 20,13 L20,17 L4,17 Z M9,6 L9,3 M15,6 L15,3.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Bakery shop</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4,7 L20,7 L20,19 L4,19 Z M8,7 L8,4 L16,4 L16,7 M12,11 L12,15 M10,13 L14,13" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Housekeeping</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3,15 L21,15 M5,15 L7,9 L17,9 L19,15 M9,9 L9,5 L15,5 L15,9" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>Local shuttle</li>
+      <li><span class="amen__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.5,10 L21.5,10" stroke="currentColor" stroke-width="1.4"/></svg></span>Cards &amp; mobile pay</li>
+    </ul>
+
+    <div class="notes reveal" data-reveal>
+      <p><strong>Good to know.</strong> English and Hindi are spoken at the desk, and children
+        are welcome. Breakfast and the airport shuttle are available at an additional charge.
+        Pets are not permitted.</p>
+      <p class="muted">
+        <!-- CONFIRM: shuttle and breakfast pricing, and any current promotional offers. -->
+        Shuttle and breakfast charges confirmed at the time of booking.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ EXPLORE SOLAN ══════════════════════════ -->
+<section class="section section--mist" id="solan" aria-labelledby="solanTitle">
+  <div class="shell">
+    <header class="sec-head">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> Explore Solan</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="solanTitle">Step out and you are already there</h2>
+      <p class="sec-head__lede reveal" data-reveal style="--i:3">
+        Being on The Mall means the town is on foot and the hills are a short drive.
+        Travel times below are approximate.
+      </p>
+    </header>
+
+    <ul class="near reveal" data-reveal>
+      <li>
+        <div class="near__dist">9 min<span>walk</span></div>
+        <div class="near__body"><h3>Solan Railway Station</h3><p>The narrow-gauge Kalka&ndash;Shimla line, and a pleasant stroll to reach it.</p></div>
+      </li>
+      <li>
+        <div class="near__dist">8 min<span>drive</span></div>
+        <div class="near__body"><h3>Maa Shoolini Temple</h3><p>The temple the town is named for, and the centre of the Shoolini Mela.</p></div>
+      </li>
+      <li>
+        <div class="near__dist">~2 km<span>away</span></div>
+        <div class="near__body"><h3>Mohan Shakti Heritage Park</h3><p>Stone-carved pavilions and gardens laid out across the hillside.</p></div>
+      </li>
+      <li>
+        <div class="near__dist">Nearby<span>Solan</span></div>
+        <div class="near__body"><h3>Jatoli Shiv Mandir</h3><p>A towering South-Indian-style shikhara, said to be among the highest in Asia.</p></div>
+      </li>
+      <li>
+        <div class="near__dist">Day trip<span>Dagshai</span></div>
+        <div class="near__body"><h3>Dagshai Jail Museum</h3><p>A colonial-era cantonment prison, now a small and sobering museum.</p></div>
+      </li>
+      <li>
+        <div class="near__dist">Day trip<span>Kasauli</span></div>
+        <div class="near__body"><h3>Timber Trail &amp; Kasauli</h3><p>Cable car over the gorge, then the cobbled quiet of a colonial hill town.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════ REVIEWS ══════════════════════════ -->
+<section class="section reviews" aria-labelledby="revTitle">
+  <div class="shell">
+    <div class="reviews__head">
+      <div class="reviews__score reveal" data-reveal>
+        <span class="reviews__num">4.0</span>
+        <span class="stars" role="img" aria-label="Rated 4 out of 5">&#9733;&#9733;&#9733;&#9733;<span class="stars__dim">&#9733;</span></span>
+        <span class="reviews__meta">1,500+ Google reviews</span>
+        <!-- CONFIRM: swap href for the hotel's official Google Business profile link. -->
+        <a class="linkish" href="#contact" rel="nofollow">Read reviews on Google <svg viewBox="0 0 20 8" aria-hidden="true"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+      </div>
+      <div class="reviews__intro reveal" data-reveal style="--i:2">
+        <p class="eyebrow"><span class="eyebrow__rule" aria-hidden="true"></span> Guest Voices</p>
+        <h2 class="h2" id="revTitle">Twenty-odd years<br>of return visits</h2>
+        <p class="muted">Our restaurant is rated separately, at 4.5 out of 5 across 185 reviews.</p>
+      </div>
+    </div>
+
+    <!-- ══ TEMPLATE SLOTS ══════════════════════════════════════════════
+         The three quotes below are placeholders written to show the layout.
+         Replace each blockquote with a real, verified Google review before
+         publishing, and keep the attribution as the reviewer's Google name.
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="quotes">
+      <blockquote class="quote reveal" data-reveal>
+        <p>Placeholder quote &mdash; replace with a verified Google review about the rooms and the valley view.</p>
+        <cite>Verified Google review</cite>
+      </blockquote>
+      <blockquote class="quote reveal" data-reveal style="--i:2">
+        <p>Placeholder quote &mdash; replace with a verified Google review about a wedding or banquet held here.</p>
+        <cite>Verified Google review</cite>
+      </blockquote>
+      <blockquote class="quote reveal" data-reveal style="--i:3">
+        <p>Placeholder quote &mdash; replace with a verified Google review about the restaurant or Jannat Terrace.</p>
+        <cite>Verified Google review</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ GALLERY ══════════════════════════ -->
+<section class="section section--ink2" id="gallery" aria-labelledby="galTitle">
+  <div class="shell">
+    <header class="sec-head sec-head--center">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> Gallery</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="galTitle">Have a look around</h2>
+    </header>
+
+    <div class="chips reveal" data-reveal role="group" aria-label="Filter gallery">
+      <button type="button" class="chip is-on" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="chip" data-filter="rooms" aria-pressed="false">Rooms</button>
+      <button type="button" class="chip" data-filter="dining" aria-pressed="false">Dining</button>
+      <button type="button" class="chip" data-filter="terrace" aria-pressed="false">Jannat Terrace</button>
+      <button type="button" class="chip" data-filter="weddings" aria-pressed="false">Weddings</button>
+      <button type="button" class="chip" data-filter="palace" aria-pressed="false">The Palace</button>
+    </div>
+
+    <div class="grid-gal" id="galleryGrid">
+      <button type="button" class="tile reveal tile--wide" data-reveal style="--i:1" data-cat="rooms" data-caption="Royal Suite dressed for an occasion">
+        <img src="images/suite-royal-canopy-half.webp" srcset="images/suite-royal-canopy-half.webp 680w, images/suite-royal-canopy.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="Royal Suite dressed for an occasion" width="1360" height="890" style="background-image:var(--lq-suite-royal-canopy)" loading="lazy" decoding="async"><span class="tile__cap">Royal Suite</span>
+      </button>
+      <button type="button" class="tile reveal" data-reveal style="--i:2" data-cat="rooms" data-caption="Valley-view room">
+        <img src="images/room-valley-velvet-half.webp" srcset="images/room-valley-velvet-half.webp 680w, images/room-valley-velvet.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="Valley-view room" width="1360" height="833" style="background-image:var(--lq-room-valley-velvet)" loading="lazy" decoding="async"><span class="tile__cap">Valley-view room</span>
+      </button>
+      <button type="button" class="tile reveal tile--tall" data-reveal style="--i:3" data-cat="weddings" data-caption="Shehnai players in the gazebo">
+        <img src="images/wedding-shehnai-gazebo-half.webp" srcset="images/wedding-shehnai-gazebo-half.webp 340w, images/wedding-shehnai-gazebo.webp 679w" sizes="(max-width:720px) 92vw, 30vw" alt="Shehnai players in the gazebo" width="679" height="1020" style="background-image:var(--lq-wedding-shehnai-gazebo)" loading="lazy" decoding="async"><span class="tile__cap">Shehnai in the gazebo</span>
+      </button>
+      <button type="button" class="tile reveal" data-reveal style="--i:4" data-cat="terrace" data-caption="Bonfire on Jannat Terrace">
+        <img src="images/terrace-bonfire-half.webp" srcset="images/terrace-bonfire-half.webp 512w, images/terrace-bonfire.webp 1024w" sizes="(max-width:720px) 92vw, 30vw" alt="Bonfire on Jannat Terrace" width="1024" height="664" style="background-image:var(--lq-terrace-bonfire)" loading="lazy" decoding="async"><span class="tile__cap">Bonfire on the terrace</span>
+      </button>
+      <button type="button" class="tile reveal tile--tall" data-reveal style="--i:5" data-cat="palace" data-caption="The facade after dark">
+        <img src="images/facade-night-half.webp" srcset="images/facade-night-half.webp 334w, images/facade-night.webp 667w" sizes="(max-width:720px) 92vw, 30vw" alt="The facade after dark" width="667" height="1020" style="background-image:var(--lq-facade-night)" loading="lazy" decoding="async"><span class="tile__cap">The palace after dark</span>
+      </button>
+      <button type="button" class="tile reveal" data-reveal style="--i:6" data-cat="dining" data-caption="Service in hammered brass">
+        <img src="images/dining-brass-service-half.webp" srcset="images/dining-brass-service-half.webp 680w, images/dining-brass-service.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="Service in hammered brass" width="1360" height="907" style="background-image:var(--lq-dining-brass-service)" loading="lazy" decoding="async"><span class="tile__cap">Service in brass</span>
+      </button>
+      <button type="button" class="tile reveal tile--wide" data-reveal style="--i:7" data-cat="palace" data-caption="The hand-painted lounge">
+        <img src="images/lobby-heritage-lounge-half.webp" srcset="images/lobby-heritage-lounge-half.webp 680w, images/lobby-heritage-lounge.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="The hand-painted lounge" width="1360" height="907" style="background-image:var(--lq-lobby-heritage-lounge)" loading="lazy" decoding="async"><span class="tile__cap">Painted lounge</span>
+      </button>
+      <button type="button" class="tile reveal" data-reveal style="--i:8" data-cat="rooms" data-caption="Twin room, carved headboards">
+        <img src="images/room-twin-carved-half.webp" srcset="images/room-twin-carved-half.webp 680w, images/room-twin-carved.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="Twin room, carved headboards" width="1360" height="890" style="background-image:var(--lq-room-twin-carved)" loading="lazy" decoding="async"><span class="tile__cap">Twin room</span>
+      </button>
+      <button type="button" class="tile reveal tile--tall" data-reveal style="--i:8" data-cat="terrace" data-caption="Jannat Terrace from above">
+        <img src="images/terrace-aerial-half.webp" srcset="images/terrace-aerial-half.webp 340w, images/terrace-aerial.webp 679w" sizes="(max-width:720px) 92vw, 30vw" alt="Jannat Terrace from above" width="679" height="1020" style="background-image:var(--lq-terrace-aerial)" loading="lazy" decoding="async"><span class="tile__cap">Terrace from above</span>
+      </button>
+      <button type="button" class="tile reveal" data-reveal style="--i:8" data-cat="weddings" data-caption="A banquet table laid in brass">
+        <img src="images/banquet-gold-table-half.webp" srcset="images/banquet-gold-table-half.webp 680w, images/banquet-gold-table.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="A banquet table laid in brass" width="1360" height="907" style="background-image:var(--lq-banquet-gold-table)" loading="lazy" decoding="async"><span class="tile__cap">Banquet in brass</span>
+      </button>
+      <button type="button" class="tile reveal tile--tall" data-reveal style="--i:8" data-cat="dining" data-caption="Curries from the kitchen">
+        <img src="images/dining-curries-half.webp" srcset="images/dining-curries-half.webp 287w, images/dining-curries.webp 574w" sizes="(max-width:720px) 92vw, 30vw" alt="Curries from the kitchen" width="574" height="1020" style="background-image:var(--lq-dining-curries)" loading="lazy" decoding="async"><span class="tile__cap">From the kitchen</span>
+      </button>
+      <button type="button" class="tile reveal" data-reveal style="--i:8" data-cat="palace" data-caption="The ground-floor arcade">
+        <img src="images/facade-arcade-half.webp" srcset="images/facade-arcade-half.webp 680w, images/facade-arcade.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="The ground-floor arcade" width="1360" height="921" style="background-image:var(--lq-facade-arcade)" loading="lazy" decoding="async"><span class="tile__cap">The arcade</span>
+      </button>
+      <button type="button" class="tile reveal" data-reveal style="--i:8" data-cat="rooms" data-caption="Room with an arched valley window">
+        <img src="images/room-executive-arched-half.webp" srcset="images/room-executive-arched-half.webp 680w, images/room-executive-arched.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="Room with an arched valley window" width="1360" height="890" style="background-image:var(--lq-room-executive-arched)" loading="lazy" decoding="async"><span class="tile__cap">Arched valley window</span>
+      </button>
+      <button type="button" class="tile reveal tile--wide" data-reveal style="--i:8" data-cat="terrace" data-caption="The terrace bar at night">
+        <img src="images/terrace-bar-night-half.webp" srcset="images/terrace-bar-night-half.webp 680w, images/terrace-bar-night.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="The terrace bar at night" width="1360" height="905" style="background-image:var(--lq-terrace-bar-night)" loading="lazy" decoding="async"><span class="tile__cap">The terrace bar</span>
+      </button>
+      <button type="button" class="tile reveal" data-reveal style="--i:8" data-cat="dining" data-caption="Breakfast on the terrace">
+        <img src="images/dining-breakfast-half.webp" srcset="images/dining-breakfast-half.webp 680w, images/dining-breakfast.webp 1360w" sizes="(max-width:720px) 92vw, 30vw" alt="Breakfast on the terrace" width="1360" height="1020" style="background-image:var(--lq-dining-breakfast)" loading="lazy" decoding="async"><span class="tile__cap">Breakfast, served</span>
+      </button>
+      <button type="button" class="tile reveal tile--tall" data-reveal style="--i:8" data-cat="dining" data-caption="A table above the hills">
+        <img src="images/dining-terrace-glass-half.webp" srcset="images/dining-terrace-glass-half.webp 287w, images/dining-terrace-glass.webp 574w" sizes="(max-width:720px) 92vw, 30vw" alt="A table above the hills" width="574" height="1020" style="background-image:var(--lq-dining-terrace-glass)" loading="lazy" decoding="async"><span class="tile__cap">Above the hills</span>
+      </button>
+    </div>
+
+    <p class="fineprint reveal" data-reveal>
+      <!-- CONFIRM: outlet names Amoruccio Gelateria and Doki Doki appear on the arcade in the supplied photo — confirm they are hotel-operated before describing them as hotel outlets. -->
+      All photography on this page was supplied by the hotel.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CONTACT ══════════════════════════ -->
+<section class="section" id="contact" aria-labelledby="conTitle">
+  <div class="shell contact">
+
+    <div class="contact__info">
+      <p class="eyebrow reveal" data-reveal><span class="eyebrow__rule" aria-hidden="true"></span> Contact</p>
+      <h2 class="h2 reveal" data-reveal style="--i:2" id="conTitle">Let's get you booked</h2>
+
+      <div class="contact__block reveal" data-reveal style="--i:3">
+        <h3 class="contact__lbl">Address</h3>
+        <address>
+          Hotel Grand Paragon Palace<br>
+          The Mall, Solan<br>
+          Himachal Pradesh, India
+        </address>
+        <!-- CONFIRM: PIN listed as 173211 on the hotel contact page and 173212 on Google. Confirm before printing. -->
+        <a class="linkish" href="https://www.google.com/maps?q=Hotel+Grand+Paragon,+The+Mall,+Solan,+Himachal+Pradesh" target="_blank" rel="noopener">
+          Get directions <svg viewBox="0 0 20 8" aria-hidden="true"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+
+      <div class="contact__block reveal" data-reveal style="--i:4">
+        <h3 class="contact__lbl">Phone</h3>
+        <ul class="plain">
+          <li><a href="tel:+919418068277">+91 94180 68277</a> <span class="muted">24&times;7</span></li>
+          <li><a href="tel:+919418034277">+91 94180 34277</a></li>
+          <li><a href="tel:+919418020537">+91 94180 20537</a></li>
+        </ul>
+      </div>
+
+      <div class="contact__block reveal" data-reveal style="--i:5">
+        <h3 class="contact__lbl">Email</h3>
+        <ul class="plain">
+          <li><a href="mailto:info@hotelgrandparagon.com">info@hotelgrandparagon.com</a> <span class="muted">General</span></li>
+          <li><a href="mailto:reservations@hotelgrandparagon.com">reservations@hotelgrandparagon.com</a> <span class="muted">Reservations</span></li>
+          <li><a href="mailto:booking@hotelparagonpalace.com">booking@hotelparagonpalace.com</a> <span class="muted">Booking</span></li>
+        </ul>
+      </div>
+
+      <div class="contact__block reveal" data-reveal style="--i:6">
+        <h3 class="contact__lbl">Check-in &amp; check-out</h3>
+        <p>Check-in from <strong>2:00 PM IST</strong> &middot; Check-out by <strong>12:00 PM</strong>.
+           Early check-in and late check-out subject to availability and applicable charges.</p>
+      </div>
+    </div>
+
+    <div class="contact__form-wrap reveal" data-reveal style="--i:3">
+      <form class="form" id="enquiryForm" novalidate>
+        <h3 class="h4">Send an enquiry</h3>
+        <p class="form__hint">Stay, wedding, banquet or an evening on the terrace &mdash; tell us
+           what you have in mind and we will reply with availability and current rates.</p>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="fName">Full name <span aria-hidden="true">*</span></label>
+            <input type="text" id="fName" name="name" autocomplete="name" required>
+            <p class="field__err" data-err-for="fName"></p>
+          </div>
+          <div class="field">
+            <label for="fPhone">Phone <span aria-hidden="true">*</span></label>
+            <input type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" required>
+            <p class="field__err" data-err-for="fPhone"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fEmail">Email <span aria-hidden="true">*</span></label>
+          <input type="email" id="fEmail" name="email" autocomplete="email" required>
+          <p class="field__err" data-err-for="fEmail"></p>
+        </div>
+
+        <div class="form__row">
+          <div class="field">
+            <label for="fType">Enquiry about</label>
+            <select id="fType" name="type">
+              <option>Room booking</option>
+              <option>Wedding</option>
+              <option>Banquet / large event</option>
+              <option>Corporate event</option>
+              <option>Jannat Terrace</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fDate">Preferred date</label>
+            <input type="date" id="fDate" name="date">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fGuests">Guests / rooms</label>
+          <input type="text" id="fGuests" name="guests" placeholder="e.g. 2 adults, 1 room — or 400 guests">
+        </div>
+
+        <div class="field">
+          <label for="fMsg">Message</label>
+          <textarea id="fMsg" name="message" rows="4" placeholder="Anything we should know?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--gilt btn--full">
+          Send enquiry
+          <svg viewBox="0 0 20 8" aria-hidden="true" class="btn__arrow"><path d="M0,4 L18,4 M14,1 L18,4 L14,7" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+        </button>
+        <p class="form__legal">
+          <!-- Front-end only: no backend is wired up. On submit the form opens the guest's
+               mail client with a prefilled message to reservations@. Replace with a POST
+               to the hotel's booking endpoint when available. -->
+          By sending you agree to be contacted about your enquiry. See our
+          <a href="#terms">terms &amp; cancellation policy</a>.
+        </p>
+
+        <div class="form__done" id="formDone" hidden role="status">
+          <span class="form__tick" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4,13 L9,18 L20,6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+          <h4>Thank you &mdash; your enquiry is ready to send</h4>
+          <p id="formDoneMsg"></p>
+          <div class="form__done-act">
+            <a class="btn btn--gilt btn--sm" id="mailtoLink" href="#">Open in email</a>
+            <a class="btn btn--ghost btn--sm" href="tel:+919418068277">Call instead</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="map reveal" data-reveal>
+    <iframe
+      title="Map showing Hotel Grand Paragon Palace on The Mall, Solan"
+      src="https://www.google.com/maps?q=Hotel%20Grand%20Paragon%2C%20The%20Mall%2C%20Solan%2C%20Himachal%20Pradesh&output=embed"
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+</main>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer class="foot" id="terms">
+  <div class="shell foot__grid">
+    <div class="foot__brand">
+      <span class="brand__mark brand__mark--lg" aria-hidden="true">
+        <svg viewBox="0 0 40 48"><path d="M2,46 L2,22 C2,13 9.5,5.5 16.5,3 C19,2 19.2,1 20,-1 C20.8,1 21,2 23.5,3 C30.5,5.5 38,13 38,22 L38,46" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M13,46 L13,28 C13,24 16,21 20,21 C24,21 27,24 27,28 L27,46" fill="none" stroke="currentColor" stroke-width="1.1" opacity=".55"/></svg>
+      </span>
+      <p class="foot__name">Hotel Grand Paragon Palace</p>
+      <p class="foot__tag">3-Star Hotel &middot; Since 2002 &middot; Heritage Inspired<br>The Mall, Solan, Himachal Pradesh, India</p>
+      <!-- CONFIRM: social profile URLs. -->
+      <ul class="socials" aria-label="Social profiles">
+        <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="17" cy="7" r="1.1" fill="currentColor"/></svg></a></li>
+        <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14,21 L14,13 L17,13 L17.5,9.5 L14,9.5 L14,7.5 C14,6.3 14.5,5.8 16,5.8 L17.5,5.8 L17.5,2.6 C16.8,2.5 15.6,2.4 14.6,2.4 C11.8,2.4 10,4 10,7.1 L10,9.5 L7,9.5 L7,13 L10,13 L10,21 Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></li>
+        <li><a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3,21 L4.5,16.5 A9,9 0 1 1 8,19.8 Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9,8.5 C9,12 12,15 15.5,15 C16.5,14 15,13 14,13.5 C13,12.8 11.2,11 10.5,10 C11,9 10,7.5 9,8.5Z" fill="currentColor"/></svg></a></li>
+      </ul>
+    </div>
+
+    <nav class="foot__col" aria-label="Explore">
+      <h3>Explore</h3>
+      <ul><li><a href="#about">About Us</a></li><li><a href="#rooms">Rooms &amp; Suites</a></li><li><a href="#dining">Dining</a></li><li><a href="#jannat">Jannat Terrace</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#solan">Explore Solan</a></li></ul>
+    </nav>
+
+    <nav class="foot__col" aria-label="Celebrations">
+      <h3>Celebrations</h3>
+      <ul><li><a href="#weddings">Weddings &amp; Events</a></li><li><a href="#banquets">Svayamvara Banquet</a></li><li><a href="#banquets">Sangam Hall</a></li><li><a href="#weddings">The Open Lawn</a></li><li><a href="#contact">Corporate events</a></li><li><a href="#contact">Get a quote</a></li></ul>
+    </nav>
+
+    <div class="foot__col">
+      <h3>Reach us</h3>
+      <ul>
+        <li><a href="tel:+919418068277">+91 94180 68277</a> <span class="muted">24&times;7</span></li>
+        <li><a href="tel:+919418034277">+91 94180 34277</a></li>
+        <li><a href="mailto:info@hotelgrandparagon.com">info@hotelgrandparagon.com</a></li>
+        <li><a href="mailto:reservations@hotelgrandparagon.com">reservations@…</a></li>
+      </ul>
+      <p class="foot__times">Check-in 2:00 PM &middot; Check-out 12:00 PM</p>
+    </div>
+  </div>
+
+  <div class="shell foot__policy">
+    <h3>Booking &amp; cancellation, in short</h3>
+    <p>
+      Individual bookings cancelled at least three days before arrival do not attract charges
+      beyond the applicable one-night retention. Group bookings of five rooms or more follow
+      our group terms, with cancellation at least twenty-five days before arrival. A no-show
+      may be charged one night's room rate including applicable government taxes. A valid
+      photo ID is required at check-in, and a credit card may be used for payment or
+      pre-authorisation. Full terms and conditions are available on request &mdash; these
+      notes are a summary, not the contract.
+    </p>
+  </div>
+
+  <div class="shell foot__base">
+    <p>&copy; <span id="year">2026</span> Hotel Grand Paragon Palace, Solan. All rights reserved.</p>
+    <p class="muted">Rates, menus and packages on request. Pets not permitted.</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════ FLOATING ACTIONS ══════════════════════════ -->
+<div class="fab">
+  <a class="fab__btn fab__btn--call" href="tel:+919418068277" aria-label="Call the hotel">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5,2.5 L5,2 L6.5,5 L5,6.3 C5.6,8 8,10.4 9.7,11 L11,9.5 L14,11 L13.5,13.5 C8,14.5 1.5,8 2.5,2.5Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+  </a>
+  <button type="button" class="fab__btn fab__btn--top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8,13 L8,3 M4,7 L8,3 L12,7" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+  </button>
+</div>
+
+<!-- ══════════════════════════ BOOKING MODAL ══════════════════════════ -->
+<div class="modal" id="bookingModal" hidden>
+  <div class="modal__scrim" data-close-modal></div>
+  <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="bmTitle">
+    <button type="button" class="modal__x" data-close-modal aria-label="Close">&times;</button>
+    <p class="eyebrow"><span class="eyebrow__rule" aria-hidden="true"></span> Reservations</p>
+    <h2 class="h3" id="bmTitle">Book your stay</h2>
+    <p class="modal__lede">We do not publish live rates online. Send your dates and our team
+       replies with today's best available rate &mdash; usually the same day.</p>
+
+    <form class="form form--modal" id="bookingForm" novalidate>
+      <div class="form__row">
+        <div class="field"><label for="mIn">Check-in <span aria-hidden="true">*</span></label><input type="date" id="mIn" required><p class="field__err" data-err-for="mIn"></p></div>
+        <div class="field"><label for="mOut">Check-out <span aria-hidden="true">*</span></label><input type="date" id="mOut" required><p class="field__err" data-err-for="mOut"></p></div>
+      </div>
+      <p class="modal__nights" id="modalNights" hidden></p>
+      <div class="form__row">
+        <div class="field">
+          <label for="mRoom">Room type</label>
+          <select id="mRoom">
+            <option>Executive Suite — Valley View</option>
+            <option>Executive Suite — Twin Bed</option>
+            <option>Royal Suite</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mGuests">Guests</label>
+          <select id="mGuests">
+            <option>1 Adult</option><option selected>2 Adults</option>
+            <option>2 Adults, 1 Child</option><option>3 Adults</option>
+            <option>4 Adults</option><option>Group / 5+ rooms</option>
+          </select>
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field"><label for="mName">Name <span aria-hidden="true">*</span></label><input type="text" id="mName" autocomplete="name" required><p class="field__err" data-err-for="mName"></p></div>
+        <div class="field"><label for="mPhone">Phone <span aria-hidden="true">*</span></label><input type="tel" id="mPhone" autocomplete="tel" required><p class="field__err" data-err-for="mPhone"></p></div>
+      </div>
+      <div class="field"><label for="mEmail">Email <span aria-hidden="true">*</span></label><input type="email" id="mEmail" autocomplete="email" required><p class="field__err" data-err-for="mEmail"></p></div>
+
+      <button type="submit" class="btn btn--gilt btn--full">Request availability</button>
+      <p class="form__legal">Check-in 2:00 PM &middot; Check-out 12:00 PM. No payment is taken on this page.</p>
+
+      <div class="form__done" id="bookDone" hidden role="status">
+        <span class="form__tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4,13 L9,18 L20,6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+        <h4>Request ready</h4>
+        <p id="bookDoneMsg"></p>
+        <div class="form__done-act">
+          <a class="btn btn--gilt btn--sm" id="bookMailto" href="#">Open in email</a>
+          <a class="btn btn--ghost btn--sm" href="tel:+919418068277">Call 24&times;7</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════════════════════ LIGHTBOX ══════════════════════════ -->
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox__scrim" data-close-lb></div>
+  <div class="lightbox__inner" role="dialog" aria-modal="true" aria-label="Gallery image">
+    <button type="button" class="lightbox__x" data-close-lb aria-label="Close gallery">&times;</button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+    <figure class="lightbox__fig">
+      <img id="lbImg" src="" alt="">
+      <figcaption><span id="lbCap"></span><span class="lightbox__count" id="lbCount"></span></figcaption>
+    </figure>
+    <button type="button" class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next image">&#8250;</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
